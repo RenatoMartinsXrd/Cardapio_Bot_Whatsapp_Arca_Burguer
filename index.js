@@ -1,5 +1,6 @@
 const venom = require('venom-bot')
 const venomOptions = require('./venom-options.js')
+const schedule = require('node-schedule')
 
 venom
   .create(venomOptions)
@@ -21,13 +22,12 @@ function getMinutesDiffDate(datetime2, datetime1) {
 }
 
 function start(client) {
-  setInterval(function () {
-    let agora = new Date()
-    var resultado = `${agora}`.split(' ')
-    if (resultado[4] == '06:00:00') {
-      memoryUsers = new Map()
-    }
-  }, 1000)
+  let hour = { hour: 1, minute: 55 }
+
+  schedule.scheduleJob(hour, function () {
+    console.log('USUARIOS LIMPOS')
+    memoryUsers = new Map()
+  })
 
   client.onAnyMessage((message) => {
     if (message.body === '123' || message.body === 'pa') {

@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "worker": "node index.js",
-  "start": "node index.js",
-  "test": "node test.js"
+    "worker": "node index.js",
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-schedule": "^2.1.0",
     "venom-bot": "^4.2.0"
   }
 }

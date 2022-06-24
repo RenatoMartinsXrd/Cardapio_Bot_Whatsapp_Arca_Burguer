@@ -1,8 +1,5 @@
 {
   "name": "whatsapp_bot_arca",
-  "engines": {
-    "node": "^14"
-  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -12,6 +12,7 @@ venom
   })
 
 let memoryUsers = new Map()
+let client = null
 
 function getMinutesDiffDate(datetime2, datetime1) {
   const miliseconds = datetime2.getTime() - datetime1.getTime()
@@ -21,9 +22,9 @@ function getMinutesDiffDate(datetime2, datetime1) {
   return Math.abs(Math.round(minutes))
 }
 
-function start(client) {
+function start(_client) {
   let hour = { hour: 1, minute: 55 }
-
+  client = _client
   schedule.scheduleJob(hour, function () {
     console.log('USUARIOS LIMPOS')
     memoryUsers = new Map()
@@ -65,3 +66,7 @@ function start(client) {
     }
   })
 }
+
+process.on('SIGINT', function () {
+  client.close()
+})

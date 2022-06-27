@@ -13,5 +13,8 @@
   "dependencies": {
     "node-schedule": "^2.1.0",
     "venom-bot": "^4.2.0"
+  },
+  "engines": {
+    "node": "16.14.0"
   }
 }

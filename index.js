@@ -31,6 +31,7 @@ function start(_client) {
   })
 
   client.onAnyMessage((message) => {
+    // console.log(process.memoryUsage().heapUsed / 1024 / 1024)
     if (message.body === '123' || message.body === 'pa') {
       if (!memoryUsers.get(message.from)) {
         client

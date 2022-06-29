@@ -3,8 +3,19 @@ const venomOptions = require('./venom-options.js')
 const schedule = require('node-schedule')
 
 venom
-  .create(venomOptions)
+  .create(
+    'Chatbot a arca',
+    undefined,
+    (statusSession, session) => {
+      console.log('Status Session: ', statusSession)
+      console.log('Session name: ', session)
+    },
+    venomOptions
+  )
   .then((client) => {
+    client.onStreamChange((state) => {
+      console.log('State Connection Stream: ' + state)
+    })
     start(client)
   })
   .catch((erro) => {
@@ -23,16 +34,14 @@ function getMinutesDiffDate(datetime2, datetime1) {
 }
 
 function start(_client) {
-  let hour = { hour: 1, minute: 55 }
+  let hour = { hour: 6, minute: 00 }
   client = _client
   schedule.scheduleJob(hour, function () {
-    console.log('USUARIOS LIMPOS')
     memoryUsers = new Map()
   })
 
-  client.onAnyMessage((message) => {
-    // console.log(process.memoryUsage().heapUsed / 1024 / 1024)
-    if (message.body === '123' || message.body === 'pa') {
+  client.onMessage((message) => {
+    if (message && message.isGroupMsg === false) {
       if (!memoryUsers.get(message.from)) {
         client
           .sendText(

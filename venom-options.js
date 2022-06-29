@@ -1,5 +1,6 @@
 module.exports = {
   autoClose: 0,
+  useChrome: false,
   browserArgs: [
     '--disable-web-security',
     '--no-sandbox',

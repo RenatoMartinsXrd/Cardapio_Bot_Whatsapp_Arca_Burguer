@@ -46,7 +46,7 @@ function start(_client) {
         client
           .sendText(
             message.from,
-            'Olá! Tudo bem com você? Acesse nosso cardápio: https://l.instagram.com/?u=https%3A%2F%2Fapp.anota.ai%2FAArcaBurguereAcai&e=ATOa5tPpQZfk2aEfd_hKeLdunyJBeDcPwhhQAPV40HQEKOPmH_Vafkz08cEDKy8YxpCuYlyuu8Pfc85hjz4tRwWRneSfBY_urcvnufU&s=1'
+            'Olá Bem vindo ao nosso autoatendimento me chamo NOÉ 🤖.\nVocê pode dar uma olhada em nosso cardápio entrando no link aqui abaixo 👇\nhttps://app.anota.ai/p/AArcaBurguereAcai'
           )
           .then((result) => {
             memoryUsers.set(message.from, {
